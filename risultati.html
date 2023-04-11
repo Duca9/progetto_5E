@@ -1,0 +1,22 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <title>Progetto</title>
+        </head>
+        <body background="img/progetto.png">
+		<p>questo sito e' stato realizzato con amazon web services e i file sono stati caricati tramite l'istanza del server ftp.</p>
+		<p>gli sfondi sono stati presi da internet e le credenziali del login sono state asportate dall'istanza di mariaDB.</p>
+		<p>a livello piu' tecnico il codice per creare questo sito e': </p>
+		<p>sudo apt update</p>
+		<p>sudo apt upgrade</p>
+		<p>sudo apt install docker.io</p>
+		<p>sudo service docker status</p>
+		<p>per il server ftp:</p>
+		<p>sudo docker run -d --name=ftpserver --network=host -v /home:/home/vsftpd -e FTP_USER=dany -e FTP_PASS=123456 -e PASV_ADDRESS=127.0.0.1 -e PASV_MIN_PORT=15000 -e PASV_MAX_PORT=15100 --restart unless-stopped fauria/vsftpd</p>
+		<p>per il mariaDB:</p>
+		<p>sudo docker run -d --name=mariadb -e PUID=1000 -e PGID=1000 -e MYSQL_ROOT_PASSWORD=123456 -e TZ=Europe/Rome -e MYSQL_DATABASE=isisPonti -e MYSQL_USER=johnsmith -e MYSQL_PASSWORD=123456 -p 3306:3306 -v mysql_data:/config --restart unless-stopped linuxserver/mariadb</p>
+		<p>per l'auto certificazione:</p>
+		<p>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ~/c_progetto.pem -out~/cert.pem</p>
+		<p>i file sono stati caricati tramite filezilla</p>
+	</body>
+    </html>
